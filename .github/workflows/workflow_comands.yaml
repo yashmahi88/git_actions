@@ -5,4 +5,15 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Setting an error message
-              run: echo "::error::Missing semicolon"
+              run: echo "::error::Missing semicolon"    #by doing this the workflow will pe successfull, but the error msg will be shown in the annotations. 
+            - name: Setting an error msg wit params
+              run: echo "::error title=Error Title,file=app.js,line=2,endLine=3,col=5,endColumn=7::Missing semicolon"
+
+            - name: Setting a debug msg wit params
+              run: echo "::debug title=Debug Title,file=app.js,line=2,endLine=3,col=5,endColumn=7::Missing semicolon"
+
+            - name: Setting a warning msg wit params
+              run: echo "::warning title=Warning Title,file=app.js,line=2,endLine=3,col=5,endColumn=7::Missing semicolon"
+
+            - name: Setting a notice msg wit params
+              run: echo "::notice title=Notice Title,file=app.js,line=2,endLine=3,col=5,endColumn=7::Missing semicolon"
