@@ -9,4 +9,4 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - run: echo "Repo dispatch"
-            - run: eho ${{ github.event.client_payload.env}}
+            
