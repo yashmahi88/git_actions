@@ -1,0 +1,15 @@
+name: Stale Issues and PRs
+
+on:
+    schedule:
+        - cron: "0/5 * * * *" #min, hour, day, month, day of week
+
+jobs:
+    stale:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/stale@v8
+              with:
+                stale-issue-message: "This has been unused and been stale."
+                days-before-stale: 1
+                days-before-close: 5
