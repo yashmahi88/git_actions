@@ -7,7 +7,7 @@ jobs:
         steps:
             - name: List Files Before
               run: ls -a
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v3    #this is used as an action from the official github, this eliminates writing of the whole code that has been written below.
             - name: List Files after
               run: ls -a
     checkout-and-display-files:
