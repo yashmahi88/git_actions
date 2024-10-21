@@ -1,0 +1,10 @@
+name: Workflow Run
+on:
+    workflow_run:
+        workflows: [Repository Events]    #Name of the event
+        types: [completed]
+jobs:
+    echo-string:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "This was triggered because 'Repository Events' was completed"
