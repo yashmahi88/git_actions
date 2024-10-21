@@ -1,8 +1,17 @@
 name : Repository Events
 on: 
   push:
+    branches:
+      - master  #This will run the workflow on master, if u want to exclude a branch use "!feature/branch1" so that branch1 in feature would be excluded but will work on other branches in it.
+              # The order of the branches does matter in this.
+    branches-ignore:
+      - events  #This will ignore the workflow for the events branch, make sure u cant use branches and branches_ignore on the same branch.
+    # tags:
+    #   - v1.*
+    # paths:
+    #   - "**.js"
   pull_request:
-    types: [opened, assigned, reopened, synchronize]
+    types: [opened, assigned, reopened, synchronize] # Here also we can use the branches,paths except tags as they are not valid.
   issues:
     types: [opened]
 
