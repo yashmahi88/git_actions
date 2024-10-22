@@ -4,9 +4,16 @@ on: [push, pull_request, issues, workflow_dispatch]
 run-name: "Expressions and Contexts by @${{ github.actor }}, event: ${{ github.event_name}}"  #This will make sure that the name of the workflow remains only this and change only the values of username and events happened.
 
 jobs:
-    using-expressions-and-contexts:
+    runs-on-issues-and-prs:
         runs-on: ubuntu-latest
-        if: github.event_name == 'push'
+        if: contains(fromJson('["issues","pull_request"]'), github.event_name)
+        steps:
+            - name: Run only if issue has a bug label
+              if: contains(github.event.issue.labels.*.name, 'bug')
+              run: echo ${{ join(github.event.issue.labels.*.name ', ') }}
+    using-expressions-and-contexts:
+        runs-on: ubuntu-latest 
+        if: github.event_name == 'push'      #If the event is any other than push then the job will be skipped.  
         steps:
             - name: Expressions
               id: expressions
