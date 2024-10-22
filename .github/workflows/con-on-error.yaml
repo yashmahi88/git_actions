@@ -7,7 +7,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Step 1
-              run: sleep 20
+              run: sleep 90
+              timeout-minutes: 1   #now the sleep is more than 1 min thiss will be timeout
             - name: Purposely Fail
               id: step-2
               continue-on-error: true
