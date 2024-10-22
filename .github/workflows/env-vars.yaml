@@ -21,11 +21,10 @@ jobs:
                 echo "JOB_LEVEL_ENV=$RANDOM" >> "$GITHUB_ENV"
             - name: Multiline ENV VAR
               run: |
-                DELIMITER=hello
+                DELIMITER=""
                 echo "RANDOM_JOKE<<$DELIMITER" >> "$GITHUB_ENV"
                 echo "Here is a joke:" >> "$GITHUB_ENV"
                 curl -s https://icanhazdadjoke.com/ >> "$GITHUB_ENV"    #This is an api used to generate a random joke.
-                echo "hello" >> "$GITHUB_ENV"      #This is used to add a new line 
                 echo "$DELIMITER" >> "$GITHUB_ENV"
             - name: Log custom ENV Vars
               env:
