@@ -8,7 +8,7 @@ jobs:
     pr-comment:
         runs-on: ubuntu-latest
         permissions:  # {} adding this means disable all permissions.
-          issues: read
+          issues: write
         steps:
             - name: COmment on new PR's
               uses: actions/github-script@v6
