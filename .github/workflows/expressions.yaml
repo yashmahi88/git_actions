@@ -10,7 +10,7 @@ jobs:
         steps:
             - name: Run only if issue has a bug label
               if: contains(github.event.issue.labels.*.name, 'bug')
-              run: echo ${{ join(github.event.issue.labels.*.name ', ') }}
+              run: echo ${{ join(github.event.issue.labels.*.name, ', ') }}
     using-expressions-and-contexts:
         runs-on: ubuntu-latest 
         if: github.event_name == 'push'      #If the event is any other than push then the job will be skipped.  
