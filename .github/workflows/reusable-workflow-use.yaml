@@ -15,7 +15,7 @@ jobs:
     secrets:
       access-token: ${{ secrets.NEW_SECRET }}
   calling-a-wf-in-same-repo:
-    uses: ./.github/workflows/new-reusable-workflow.yaml
+    uses: ./.github/workflows/new-reusable-wf.yaml
   using-rusb-wf-output:
     runs-on: ubuntu-latest
     needs: calling-a-wf-in-same-repo
