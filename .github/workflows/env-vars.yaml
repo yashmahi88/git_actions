@@ -3,8 +3,18 @@ on: [push]
 jobs:
     env-vars-and-contenxt:
         runs-on: ubuntu-latest
+        # if: $GITHUB_REF == 'refs/head/master' THIS WONT WORK AS ENV VAR DONT WORK WITH IF.
+        if: github.ref == 'refs/head/master'
+        env:
+            JOB_LEVEL_ENV: Available to all steps in  env-vars-and-contenxt job               #This ENV will only work at job level as defined under job.
         steps:
             - name: Log ENV VAR
               run: echo $GITHUB_REF
             - name: Log Context
               run: echo '${{ github.ref }}'
+            - name: Log custom ENV Vars
+              env:
+                STEP_LEVEL_ENV: Available to only this step.
+              run: |
+                echo '${{ env.STEP_LEVEL_ENV }}'
+                echo $JOB_LEVEL_ENV
