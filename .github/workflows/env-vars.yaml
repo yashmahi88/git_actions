@@ -25,7 +25,7 @@ jobs:
                 echo "RANDOM_JOKE<<$DELIMITER" >> "$GITHUB_ENV"
                 echo "Here is a joke:" >> "$GITHUB_ENV"
                 curl -s https://icanhazdadjoke.com/ >> "$GITHUB_ENV"    #This is an api used to generate a random joke.
-                echo "" >> "$GITHUB_ENV"      #This is used to add a new line 
+                 
                 echo "$DELIMITER" >> "$GITHUB_ENV"
             - name: Log custom ENV Vars
               env:
