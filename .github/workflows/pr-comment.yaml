@@ -2,13 +2,18 @@ name: PUll Request Comment
 on:
     pull_request_target:
         types: [opened]
+
+
 jobs:
     pr-comment:
         runs-on: ubuntu-latest
+        permissions:  # {} adding this means disable all permissions.
+          issues: read
         steps:
             - name: COmment on new PR's
               uses: actions/github-script@v6
               with:
+                github-token: ${{ secrets.GITHUB_TOKEN }} #this is a token generated only for that specific workflow
                 script: |
                     github.rest.issues.createComment({
                     owner: context.repo.owner,
