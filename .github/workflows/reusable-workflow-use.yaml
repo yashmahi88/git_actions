@@ -1,0 +1,16 @@
+name: Calling Reusable Workflows
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Input description"
+        type: string
+        default: "  Yash"
+        required: false
+jobs:
+  calling-a-reusable-wf:
+    uses: yashmahi88/workflow-test/.github/workflows/reusable.yaml@master
+    with:
+      name: ${{ inputs.name }}
+    secrets:
+      access-token: ${{ secrets.NEW_SECRET }}
