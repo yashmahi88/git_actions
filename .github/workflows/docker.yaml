@@ -39,3 +39,10 @@ jobs:
               with:
                 entrypoint: cat
                 args: text.txt
+            - uses: actions/checkout@v3
+            - name: Run a bash script
+              uses: docker://node:23-alpine3.19
+              with:
+                entrypoint: ./script.sh
+                args: "This is argument passed to a script placed in the root dir."
+ 
