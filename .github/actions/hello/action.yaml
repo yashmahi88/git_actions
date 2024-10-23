@@ -1,18 +1,16 @@
-name: Hello World
-author: Yash M
-description: "Greet someone and record the time"
+name: Hello Action
+description: "Greet someone and record time"
+
 inputs:
   who_to_greet:
     description: "Who to greet"
     required: true
     default: "World"
+
 outputs:
   time:
-    description: The time of the greeting
+    description: "The time of the greeting"
+
 runs:
   using: "node16"
   main: "dist/index.js"
-  pre: "setup.js"
-  pre-if: runner.os == 'linux'
-  post: "cleanup.js"
-  post-if: runner.os == 'linux'
