@@ -39,10 +39,17 @@ jobs:
               with:
                 entrypoint: cat
                 args: text.txt
-            - uses: actions/checkout@v3
-            - name: Run a bash script
-              uses: docker://node:23-alpine3.19
-              with:
-                entrypoint: ./script.sh
-                args: "This is argument passed to a script placed in the root dir"
+            # - uses: actions/checkout@v3
+            # - name: Run a bash script
+            #   uses: docker://node:23-alpine3.19
+            #   with:
+            #     entrypoint: ./script.sh
+            #     args: "This is argument passed to a script placed in the root dir"
+            - name: Send a slack message
+              uses: docker://technosophos/slack-notify
+              env:
+                SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+                SLACK_TITLE: From Github Actions
+                SLACK_MESSAGE: "Actor: ${{github.actor}}, Event: ${{github.event_name}}"
+                SLACK_COLOR: "#723fc4"
  
