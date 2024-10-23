@@ -24,11 +24,11 @@ jobs:
             - name: Log Env
               run: echo $API_URL
             - name: Container in a step
-              uses: docker://node:18.16-alpine3.17
+              uses: docker://node:23-alpine3.19
               with:
                 entrypoint: '/usr/bin/node'
                 args: -p 1+3
             - name: Log node verison
-              uses: docker://node:18.16-alpine3.17
+              uses: docker://node:23-alpine3.19
               with:
                 args: -v
