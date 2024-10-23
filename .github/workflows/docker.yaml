@@ -26,7 +26,7 @@ jobs:
             - name: Container in a step
               uses: docker://node:23-alpine3.19
               with:
-                entrypoint: /usr/bin/node
+                entrypoint: /usr/local/bin/node
                 args: -p 1+3
             - name: Log node verison
               uses: docker://node:23-alpine3.19
