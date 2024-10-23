@@ -44,5 +44,5 @@ jobs:
               uses: docker://node:23-alpine3.19
               with:
                 entrypoint: ./script.sh
-                args: "This is argument passed to a script placed in the root dir."
+                args: "This is argument passed to a script placed in the root dir"
  
