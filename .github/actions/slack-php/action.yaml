@@ -8,5 +8,5 @@ runs:
   using: docker
   image: "Dockerfile"
   args: 
-    - ${{ inputs.slack_Webhook }}
+    - ${{ inputs.slack_webhook }}
     - ${{ inputs.message }}

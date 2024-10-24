@@ -6,8 +6,8 @@ WpOrg\Requests\Autoload::register();
 echo"::debug::Sending a request to slack\n";
 
 $response =  WpOrg\Requests\Requests::post(
-  'https://hooks.slack.com/services/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',
-  array(
+    $_ENV['INPUT_SLACK_WEBHOOK'],
+    array(
     'Content-Type' => 'application/json'
   ),
   json_encode(array (
