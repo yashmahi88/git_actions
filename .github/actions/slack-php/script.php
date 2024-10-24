@@ -29,7 +29,7 @@ $response =  WpOrg\Requests\Requests::post(
                     ),
                     array (
                         "type" => "mrkdwn",
-                        "text" => "*Event:*\n{$_ENV['GITHUB_EVENT']}",
+                        "text" => "*Event:*\nEVENT",
                     ),
                     array (
                         "type" => "mrkdwn",
